@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@400;700&family=Permanent+Marker&display=swap');
+
+.slideContainer{
+    display:flex;
+    width:calc(100% - 50px);
+    margin:20px auto;
+    justify-content:center;
+    align-items:center;
+    font-family: 'Archivo Narrow', sans-serif;
+    position:relative;
+    .arrow{
+        height:300px;
+        font-size:48px;
+        display:flex;
+        justify-content: center;
+        align-items:center;
+        cursor:pointer;
+        color:rgb(40,40,40);
+        &.dark{
+            color:rgb(255,255,255) !important;
+        }
+    }
+    .shadow{
+        width:400px;
+        height:300px;
+        box-shadow:0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+            0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+            0 12.5px 10px rgba(0, 0, 0, 0.06),
+            0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+            0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+            0 100px 80px rgba(0, 0, 0, 0.12);
+    }
+    .slide{
+        position:absolute;
+        width:400px;
+        height:300px;
+        background-color:rgb(180,180,180);
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        color:rgb(240,240,240);
+        font-size:24px;
+        background: linear-gradient(90deg, rgba(142,142,142,1) 0%, rgb(194, 194, 194) 100%);
+        background-size:100% 100%;
+        background-position:0% 0%;
+        transform:rotateY(90deg);
+        &.active{
+            transform:rotateY(0deg);
+        }
+        &.outRight{
+            animation-name: outRight;
+            animation-iteration-count: 1;
+            animation-duration: 1s;
+            animation-fill-mode: forwards;
+            z-index:1;
+        }
+        &.outLeft{
+            animation-name: outLeft;
+            animation-iteration-count: 1;
+            animation-duration: 1s;
+            animation-fill-mode: forwards;
+            z-index:1;
+        }
+        &.inLeft{
+            animation-name: inLeft;
+            animation-iteration-count: 1;
+            animation-duration: 1s;
+            animation-fill-mode: forwards;
+            z-index:2;
+        }
+        &.inRight{
+            animation-name: inRight;
+            animation-iteration-count: 1;
+            animation-duration: 1s;
+            animation-fill-mode: forwards;
+            z-index:2;
+        }
+    }
+}
+
+@keyframes outRight {
+    from {
+        transform:rotateY(0deg) translateZ(0px);
+        background-position:0% 0%;
+    }
+    to {
+        transform:rotateY(-90deg) translateZ(-200px);
+        background-position:50% 0%;
+    }
+}
+
+@keyframes inLeft {
+    from {
+        transform:rotateY(90deg) translateZ(200px);
+        background-position:50% 0%;
+    }
+    to {
+        transform:rotateY(0deg) translateZ(0px);
+        background-position:0% 0%;
+    }
+}
+
+@keyframes inRight{
+    from {
+        transform:rotateY(90deg) translateZ(-200px);
+        background-position:50% 0%;
+    }
+    to {
+        transform:rotateY(0deg) translateZ(0px);
+        background-position:0% 0%;
+    }
+}
+
+@keyframes outLeft{
+    from {
+        transform:rotateY(0deg) translateZ(0px);
+        background-position:0% 0%;
+    }
+    to {
+        transform:rotateY(90deg) translateZ(-200px);
+        background-position:50% 0%;
+    }
+}
+
+// Mobile
+@media (max-width: 900px) {
+
+    .slide, .shadow{
+        width:240px !important;
+        height:184px !important;
+    }
+    @keyframes outRight {
+        from {
+            transform:rotateY(0deg) translateZ(0px);
+            background-position:0% 0%;
+        }
+        to {
+            transform:rotateY(-90deg) translateZ(-120px);
+            background-position:50% 0%;
+        }
+    }
+    
+    @keyframes inLeft {
+        from {
+            transform:rotateY(90deg) translateZ(120px);
+            background-position:50% 0%;
+        }
+        to {
+            transform:rotateY(0deg) translateZ(0px);
+            background-position:0% 0%;
+        }
+    }
+    
+    @keyframes inRight{
+        from {
+            transform:rotateY(90deg) translateZ(-120px);
+            background-position:50% 0%;
+        }
+        to {
+            transform:rotateY(0deg) translateZ(0px);
+            background-position:0% 0%;
+        }
+    }
+    
+    @keyframes outLeft{
+        from {
+            transform:rotateY(0deg) translateZ(0px);
+            background-position:0% 0%;
+        }
+        to {
+            transform:rotateY(90deg) translateZ(-120px);
+            background-position:50% 0%;
+        }
+    }
+}
