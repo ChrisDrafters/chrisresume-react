@@ -1,0 +1,1 @@
+export const setDark = (isDark) => ({ type: 'setDark', payload: { dark: isDark } });

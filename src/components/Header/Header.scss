@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@400;700&family=Permanent+Marker&display=swap');
+
+@keyframes pop {
+    from {
+        background-image:url('../../images/pop.svg');
+        background-size:50%;
+        opacity:1;
+    }
+    to {
+        background-image:url('../../images/pop.svg');
+        background-size:100%;
+        opacity:0;
+        transform:rotate(180deg);
+    }
+}
+
+.header{
+    &.dark{
+        background-color:rgb(75,75,75) !important;
+        color:rgb(255,255,255) !important;
+        // Other dark styles here, including for children
+
+    }
+}
+
+.header{
+    font-family: 'Archivo Narrow', sans-serif;
+    width:100%;
+    background-color:rgb(255,255,255);
+    color:rgb(50,50,50);
+    box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.2);
+    .content{
+        padding:10px;
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        position:relative;
+    }
+}
+
+@keyframes lamp{
+    0% {
+        height:120px;
+        bottom:-120px;
+        background-position-y: -30px;
+    }
+    50% {
+        height:150px;
+        bottom:-150px;
+        background-position-y: 0px;
+    }
+    100% {
+        height:120px;
+        bottom:-120px;
+        background-position-y: -30px;
+    }
+}
+
+.chain{
+    position:absolute;
+    right:5px;
+    bottom:-120px;
+    width:20px;
+    height:120px;
+    background-position-y:-30px;
+    cursor:pointer;
+    background-image:url('../../images/chain.png');
+    background-size:20px 150px;
+    &.click{
+        animation-name: lamp;
+        animation-duration:1s;
+        animation-iteration-count: 1;
+    }
+}
+
+.logo{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+    text-shadow: 0px 0px 3px rgba(50,50,50, 0.5);
+    .left{
+        font-size:32px;
+        .top{
+            margin-bottom:-15px;
+            font-weight:700;
+            color:rgb(88, 119, 202);
+        }
+        .bottom{
+            font-weight:400;
+            font-family: 'Permanent Marker', cursive;
+        }
+    }
+    .right{
+        width:75px;
+        position:absolute;
+        bottom:0;
+        right:-60px;
+    }
+}
+
+.comContainer{
+    font-size:24px;
+    font-weight:400;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    width:75px;
+    height:50px;
+    color:rgb(120,120,120);
+    .comForeground, .comBackground{
+        position:absolute;
+    }
+    .comForeground{
+        transform:rotate(-15deg);
+    }
+    .comBackground{
+        animation-name: pop;
+        animation-duration:1s;
+        background-position:center;
+        background-repeat:no-repeat;
+        width:75px;
+        height:50px;
+    }
+}
+
+// Mobile
+@media (max-width: 900px) {
+    .header{
+        .content{
+            justify-content:center !important;
+        }
+    }
+    .logo{
+        .left{
+            font-size:24px;
+        }
+    }
+    .nav{
+        display:none !important;
+    }
+    .comContainer{
+        font-size:18px;
+    }
+}
