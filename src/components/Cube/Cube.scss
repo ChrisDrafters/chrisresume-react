@@ -41,8 +41,6 @@
         color:rgb(240,240,240);
         font-size:24px;
         background: linear-gradient(90deg, rgba(142,142,142,1) 0%, rgb(194, 194, 194) 100%);
-        background-size:100% 100%;
-        background-position:0% 0%;
         transform:rotateY(90deg);
         &.active{
             transform:rotateY(0deg);
@@ -81,44 +79,36 @@
 @keyframes outRight {
     from {
         transform:rotateY(0deg) translateZ(0px);
-        background-position:0% 0%;
     }
     to {
         transform:rotateY(-90deg) translateZ(-200px);
-        background-position:50% 0%;
     }
 }
 
 @keyframes inLeft {
     from {
         transform:rotateY(90deg) translateZ(200px);
-        background-position:50% 0%;
     }
     to {
         transform:rotateY(0deg) translateZ(0px);
-        background-position:0% 0%;
     }
 }
 
 @keyframes inRight{
     from {
         transform:rotateY(90deg) translateZ(-200px);
-        background-position:50% 0%;
     }
     to {
         transform:rotateY(0deg) translateZ(0px);
-        background-position:0% 0%;
     }
 }
 
 @keyframes outLeft{
     from {
         transform:rotateY(0deg) translateZ(0px);
-        background-position:0% 0%;
     }
     to {
         transform:rotateY(90deg) translateZ(-200px);
-        background-position:50% 0%;
     }
 }
 
@@ -132,44 +122,36 @@
     @keyframes outRight {
         from {
             transform:rotateY(0deg) translateZ(0px);
-            background-position:0% 0%;
         }
         to {
             transform:rotateY(-90deg) translateZ(-120px);
-            background-position:50% 0%;
         }
     }
     
     @keyframes inLeft {
         from {
             transform:rotateY(90deg) translateZ(120px);
-            background-position:50% 0%;
         }
         to {
             transform:rotateY(0deg) translateZ(0px);
-            background-position:0% 0%;
         }
     }
     
     @keyframes inRight{
         from {
             transform:rotateY(90deg) translateZ(-120px);
-            background-position:50% 0%;
         }
         to {
             transform:rotateY(0deg) translateZ(0px);
-            background-position:0% 0%;
         }
     }
     
     @keyframes outLeft{
         from {
             transform:rotateY(0deg) translateZ(0px);
-            background-position:0% 0%;
         }
         to {
             transform:rotateY(90deg) translateZ(-120px);
-            background-position:50% 0%;
         }
     }
 }

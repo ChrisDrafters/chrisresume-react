@@ -73,6 +73,30 @@
     }
 }
 
+.nav{
+    .items, .items:visited{
+        font-family:'Permanent Marker', cursive;
+        font-size:24px;
+        font-weight:400;
+        text-decoration:none;
+        color:inherit;
+        margin:0 10px;
+        padding-bottom:15px;
+        &:hover{
+            color:rgb(120,120,120);
+        }
+        &.active{
+            background-image:url('../../images/underline.png');
+            background-position:bottom;
+            background-repeat:no-repeat;
+            background-size:100% 15px;
+            &.dark{
+                background-image:url('../../images/underline-dark.png') !important;
+            }
+        }
+    }
+}
+
 .logo{
     display:flex;
     justify-content:center;

@@ -6,6 +6,7 @@ import useSound from 'use-sound'
 import { useSelector, useDispatch } from 'react-redux'
 import { setDark } from '../../redux/actions'
 import classNames from 'classnames'
+import { Link, useLocation } from 'react-router-dom'
 
 function Header() {
     const isDark = useSelector(state => state.dark)
@@ -16,6 +17,7 @@ function Header() {
     popRef.current = pop
     const [play] = useSound(popSfx, { volume: 0.5 })
     const [playSwitch] = useSound(switchSfx, { volume: 0.5 })
+    const location = useLocation()
 
     useEffect(() => {
         document.addEventListener('click', () => {
@@ -57,7 +59,8 @@ function Header() {
                     </div>
                 </div>
                 <div className="nav">
-                    Nav Items Here
+                    <Link to="/" className={classNames(location.pathname === '/' ? 'active' : '', 'items', isDark ? 'dark' : '')}>Home</Link>
+                    <Link to="/projects" className={classNames(location.pathname === '/projects' ? 'active' : '', 'items', isDark ? 'dark' : '')}>Projects</Link>
                 </div>
                 <div className={classNames('chain', (clickLamp) ? 'click' : '')} onClick={triggerLamp}></div>
             </div>
