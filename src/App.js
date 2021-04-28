@@ -1,6 +1,7 @@
 import './App.scss'
 import Header from './components/Header/Header'
 import Cube from './components/Cube/Cube'
+import Project from './components/Project/Project'
 import { useSelector } from 'react-redux'
 import classNames from 'classnames'
 import { Switch, Route, BrowserRouter as Router } from 'react-router-dom'
@@ -18,6 +19,7 @@ function App() {
           </Route>
           <Route path="/projects">
             <Cube />
+            <Project />
           </Route>
         </Switch>
       </div>

@@ -1,9 +1,10 @@
 import slides from './slides'
 import './Cube.scss'
 import classNames from 'classnames'
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import { setProject } from '../../redux/actions'
 
 const Cube = () => {
 
@@ -13,7 +14,12 @@ const Cube = () => {
     const [curAnim, setCurAnim] = useState(null)
     const isDark = useSelector(state => state.dark)
     const inSlideRef = useRef()
+    const dispatch = useDispatch()
     inSlideRef.current = inSlide
+
+    useEffect(() => {
+        dispatch(setProject(slides[0]))
+    }, [dispatch])
 
     const getClasses = (slide) => {
         if (curAnim === null) return '';
@@ -36,12 +42,16 @@ const Cube = () => {
         if (curAnim === null) {
             if (anim === 'left') {
                 setOutSlide(curSlide)
-                setInSlide(curSlide === 0 ? slides.length - 1 : curSlide - 1)
+                const next = curSlide === 0 ? slides.length - 1 : curSlide - 1
+                setInSlide(next)
                 setCurAnim(anim)
+                dispatch(setProject(slides[next]))
             } else if (anim === 'right') {
                 setOutSlide(curSlide)
-                setInSlide(curSlide === slides.length - 1 ? 0 : curSlide + 1)
+                const next = curSlide === slides.length - 1 ? 0 : curSlide + 1
+                setInSlide(next)
                 setCurAnim(anim)
+                dispatch(setProject(slides[next]))
             }
             setTimeout(() => {
                 setCurSlide(inSlideRef.current)
