@@ -69,11 +69,21 @@
     white-space: nowrap;
     border-radius:25px;
     box-shadow: 2px 0px 11px 2px rgba(0,0,0,0.5) inset;
+    position:relative;
+    .shadow{
+        border-radius:25px;
+        box-shadow: 2px 0px 11px 2px rgba(0,0,0,0.5) inset;
+        width:100%;
+        height:100%;
+        position:absolute;
+        top:0;
+        left:0;
+    }
     .image1{
         display:inline-block;
-        width:50%;
+        width:0%;
         height:100%;
-        animation: image1Rotation 10s infinite;
+        animation: image1Rotation 10s 1;
         background:url('../../images/me.jpg');
         background-size:450px 675px;
         background-position-x:0px;
@@ -82,31 +92,30 @@
     }
     .image2{
         display:inline-block;
-        width:50%;
+        width:100%;
         height:100%;
-        animation: image2Rotation 10s infinite;
+        animation: image2Rotation 10s 1;
         background:url('../../images/me.jpg');
         background-size:450px 675px;
-        background-position-x:-225px;
+        background-position-x:0px;
         background-repeat:no-repeat;
-        filter:sepia(1.5);
+        filter:saturate(1.2);
     }
 }
 
 @keyframes image1Rotation{
     0%{
-        width:50%;
+        width:0%;
     }
     15%{
         width:100%;
     }
     30%{
         width:0px;
-        filter:grayscale(1);
     }
     45%{
         width:50%;
-        filter:saturate(1.25) grayscale(0);
+        filter:grayscale(0) saturate(1.25);
     }
     60%{
         width:100%;
@@ -116,14 +125,14 @@
         filter:saturate(1.25);
     }
     100%{
-        width:50%;
+        width:0%;
         filter:saturate(1) grayscale(1);
     }
 }
 @keyframes image2Rotation{
     0%{
-        width:50%;
-        background-position-x:-225px;
+        width:100%;
+        background-position-x:0px;
     }
     15%{
         width:0px;
@@ -141,23 +150,24 @@
     60%{
         width:0px;
         background-position-x:-450px;
-        filter:hue-rotate(125deg) sepia(0);
+        filter:hue-rotate(125deg) sepia(0) saturate(1);
     }
     75%{
         width:100%;
         background-position-x:0px;
+        filter: hue-rotate(0deg);
     }
     100%{
-        width:50%;
-        background-position-x:-225px;
-        filter:hue-rotate(0deg) sepia(1.5);
+        width:100%;
+        background-position-x:0px;
+        filter:hue-rotate(0deg) saturate(1.2);
     }
 }
 
 @keyframes image2RotationMobile{
     0%{
-        width:50%;
-        background-position-x:-112.5px;
+        width:100%;
+        background-position-x:0px;
     }
     15%{
         width:0px;
@@ -175,16 +185,17 @@
     60%{
         width:0px;
         background-position-x:-225px;
-        filter:hue-rotate(125deg) sepia(0);
+        filter:hue-rotate(125deg) sepia(0) saturate(1);
     }
     75%{
         width:100%;
         background-position-x:0px;
+        filter: hue-rotate(0deg);
     }
     100%{
-        width:50%;
-        background-position-x:-112.5px;
-        filter:hue-rotate(0deg) sepia(1.5);
+        width:100%;
+        background-position-x:0px;
+        filter:hue-rotate(0deg) saturate(1.2);
     }
 }
 
@@ -211,18 +222,22 @@
     .imageContainer{
         width:225px !important;
         height:337.5px !important;
+        .shadow{
+            width:225px !important;
+            height:337.5px !important;
+        }
         .image1, .image2{
             background-size:225px 337.5px !important;
         }
         .image2{
             display:inline-block;
-            width:50%;
+            width:100%;
             height:100%;
-            animation: image2RotationMobile 10s infinite !important;
+            animation: image2RotationMobile 10s 1 !important;
             background:url('../../images/me.jpg');
-            background-position-x:-112.5px;
+            background-position-x:0px;
             background-repeat:no-repeat;
-            filter:sepia(1.5);
+            filter:saturate(1.2);
         }
     }
 }

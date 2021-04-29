@@ -11,6 +11,7 @@ const Home = () => {
                 <div className="imageContainer">
                     <div className="image1"></div>
                     <div className="image2"></div>
+                    <div className="shadow"></div>
                 </div>
                 <div className="rightB">
                     <div className="titleContainer">
