@@ -1,4 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@400;700&family=Permanent+Marker&display=swap');
+@keyframes fadeIn{
+    from {
+        opacity:0;
+    }
+    to {
+        opacity: 1;
+    }
+}
 
 .slideContainer{
     display:flex;
@@ -8,6 +15,7 @@
     align-items:center;
     font-family: 'Archivo Narrow', sans-serif;
     position:relative;
+    animation: fadeIn 0.5s 1;
     .arrow{
         height:300px;
         font-size:48px;

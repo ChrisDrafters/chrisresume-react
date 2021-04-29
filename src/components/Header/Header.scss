@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@400;700&family=Permanent+Marker&display=swap');
-
 @keyframes pop {
     from {
         background-image:url('../../images/pop.svg');
@@ -14,7 +12,16 @@
     }
 }
 
-.header{
+@keyframes fadeIn{
+    from {
+        opacity:0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.Header{
     &.dark{
         background-color:rgb(75,75,75) !important;
         color:rgb(255,255,255) !important;
@@ -23,18 +30,22 @@
     }
 }
 
-.header{
+.Header{
     font-family: 'Archivo Narrow', sans-serif;
     width:100%;
     background-color:rgb(255,255,255);
     color:rgb(50,50,50);
     box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.2);
+    animation: fadeIn 0.5s 1;
     .content{
         padding:10px;
         display:flex;
         justify-content:space-between;
         align-items:center;
         position:relative;
+        .menu{
+            display:none;
+        }
     }
 }
 
@@ -66,10 +77,46 @@
     cursor:pointer;
     background-image:url('../../images/chain.png');
     background-size:20px 150px;
+    filter: drop-shadow(0px 0px 3px rgba(0,0,0,.25));
     &.click{
         animation-name: lamp;
         animation-duration:1s;
         animation-iteration-count: 1;
+    }
+}
+
+.soContainer{
+    color:rgb(50,50,50);
+    &.dark{
+        background-color:rgb(75,75,75) !important;
+        color:rgb(255,255,255) !important;
+    }
+}
+
+.slideOutMenu{
+    padding:10px;
+    text-align:center;
+    .items, .items:visited{
+        font-family:'Permanent Marker', cursive;
+        font-size:24px;
+        font-weight:400;
+        text-decoration:none;
+        color:inherit;
+        margin:0 10px 10px 10px;
+        padding-bottom:8px;
+        display:block;
+        &:hover{
+            color:rgb(120,120,120);
+        }
+        &.active{
+            background-image:url('../../images/underline.png');
+            background-position:bottom;
+            background-repeat:no-repeat;
+            background-size:100% 15px;
+            &.dark{
+                background-image:url('../../images/underline-dark.png') !important;
+            }
+        }
     }
 }
 
@@ -150,9 +197,19 @@
 
 // Mobile
 @media (max-width: 900px) {
-    .header{
+    .Header{
         .content{
             justify-content:center !important;
+            .menu{
+                display:block !important;
+                position:absolute;
+                left:20px;
+                font-size:24px;
+                cursor:pointer;
+                &:hover{
+                    color:rgb(120,120,120);
+                }
+            }
         }
     }
     .logo{

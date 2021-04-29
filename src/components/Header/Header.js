@@ -7,6 +7,8 @@ import { useSelector, useDispatch } from 'react-redux'
 import { setDark } from '../../redux/actions'
 import classNames from 'classnames'
 import { Link, useLocation } from 'react-router-dom'
+import Drawer from '@material-ui/core/Drawer'
+import { FaBars } from 'react-icons/fa'
 
 function Header() {
     const isDark = useSelector(state => state.dark)
@@ -18,6 +20,7 @@ function Header() {
     const [play] = useSound(popSfx, { volume: 0.5 })
     const [playSwitch] = useSound(switchSfx, { volume: 0.5 })
     const location = useLocation()
+    const [openDrawer, setOpenDrawer] = useState(false)
 
     useEffect(() => {
         document.addEventListener('click', () => {
@@ -37,9 +40,26 @@ function Header() {
         }, 1000);
     }
 
+    const openMenu = () => {
+        setOpenDrawer(true)
+    }
+
+    const closeMenu = () => {
+        setOpenDrawer(false)
+    }
+
     return (
-        <div className={classNames('header', (isDark) ? 'dark' : '')}>
+        <div className={classNames('Header', (isDark) ? 'dark' : '')}>
+            <Drawer classes={{ paperAnchorLeft: classNames('soContainer', (isDark) ? 'dark' : '') }} anchor="left" open={openDrawer} onClose={closeMenu}>
+                <div className="slideOutMenu">
+                    <Link to="/" className={classNames(location.pathname === '/' ? 'active' : '', 'items', isDark ? 'dark' : '')}>Home</Link>
+                    <Link to="/projects" className={classNames(location.pathname === '/projects' ? 'active' : '', 'items', isDark ? 'dark' : '')}>Projects</Link>
+                </div>
+            </Drawer>
             <div className="content">
+                <div className="menu" onClick={openMenu}>
+                    <FaBars />
+                </div>
                 <div className="logo">
                     <div className="left">
                         <div className="top">Chris</div>

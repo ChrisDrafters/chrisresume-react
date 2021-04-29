@@ -1,6 +1,7 @@
 import './App.scss'
 import Header from './components/Header/Header'
 import Cube from './components/Cube/Cube'
+import Home from './components/Home/Home'
 import Project from './components/Project/Project'
 import { useSelector } from 'react-redux'
 import classNames from 'classnames'
@@ -15,7 +16,7 @@ function App() {
         <Header />
         <Switch>
           <Route exact path="/">
-
+            <Home />
           </Route>
           <Route path="/projects">
             <Cube />
