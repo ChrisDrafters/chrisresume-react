@@ -1,6 +1,7 @@
 const defaultState = {
     dark: false,
-    project: null
+    project: null,
+    pType: 'professional'
 }
 
 export default function reducer(state = defaultState, action) {
@@ -9,6 +10,8 @@ export default function reducer(state = defaultState, action) {
             return { ...state, dark: action.payload.dark }
         case 'setProject':
             return { ...state, project: action.payload.project }
+        case 'setPType':
+            return { ...state, pType: action.payload.pType }
         default:
             return state
     }

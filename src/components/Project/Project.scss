@@ -1,11 +1,47 @@
 .Project{
-    display:flex;
-    justify-content:center;
-    align-items:center;
     color:rgb(50,50,50);
     animation: fadeIn 0.5s 1;
+    padding:5px 10px;
     &.dark{
         color:rgb(255,255,255) !important;
+    }
+    font-family: 'Archivo Narrow', sans-serif;
+}
+
+.tabs{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:100%;
+}
+
+.title{
+    font-family:'Permanent Marker', cursive;
+    font-size:24px;
+    &.dark{
+        color:rgb(200,200,200);
+    }
+}
+
+.description{
+    font-weight:300;
+    font-size:18px;
+    color:rgb(100,100,100);
+    margin-bottom:10px;
+    &.dark{
+        color:rgb(255,255,255);
+    }
+}
+
+.body, .body2{
+    margin-bottom:10px;
+    font-size:16px;
+}
+
+.img1,.img2{
+    text-align:center;
+    .img{
+        max-width:100%;
     }
 }
 
@@ -15,5 +51,14 @@
     }
     to {
         opacity: 1;
+    }
+}
+
+@media (max-width:900px){
+    .title{
+        font-size:18px !important;
+    }
+    .description{
+        font-size:16px !important;
     }
 }

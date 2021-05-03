@@ -13,13 +13,19 @@ const Cube = () => {
     const [outSlide, setOutSlide] = useState(null)
     const [curAnim, setCurAnim] = useState(null)
     const isDark = useSelector(state => state.dark)
+    const pType = useSelector(state => state.pType)
     const inSlideRef = useRef()
     const dispatch = useDispatch()
     inSlideRef.current = inSlide
 
     useEffect(() => {
-        dispatch(setProject(slides[0]))
-    }, [dispatch])
+        dispatch(setProject(slides[pType][curSlide]))
+    }, [dispatch, curSlide, pType])
+
+    useEffect(() => {
+        setCurSlide(0)
+        dispatch(setProject(slides[pType][0]))
+    }, [pType, dispatch])
 
     const getClasses = (slide) => {
         if (curAnim === null) return '';
@@ -42,16 +48,16 @@ const Cube = () => {
         if (curAnim === null) {
             if (anim === 'left') {
                 setOutSlide(curSlide)
-                const next = curSlide === 0 ? slides.length - 1 : curSlide - 1
+                const next = curSlide === 0 ? slides[pType].length - 1 : curSlide - 1
                 setInSlide(next)
                 setCurAnim(anim)
-                dispatch(setProject(slides[next]))
+                dispatch(setProject(slides[pType][next]))
             } else if (anim === 'right') {
                 setOutSlide(curSlide)
-                const next = curSlide === slides.length - 1 ? 0 : curSlide + 1
+                const next = curSlide === slides[pType].length - 1 ? 0 : curSlide + 1
                 setInSlide(next)
                 setCurAnim(anim)
-                dispatch(setProject(slides[next]))
+                dispatch(setProject(slides[pType][next]))
             }
             setTimeout(() => {
                 setCurSlide(inSlideRef.current)
@@ -65,8 +71,8 @@ const Cube = () => {
             <div className={classNames('arrow', (isDark) ? 'dark' : '')} onClick={changeSlide.bind(null, 'left')}><FaChevronLeft /></div>
             <div className="shadow"></div>
             {
-                slides.map(slide => (
-                    <div key={slide.id} className={classNames('slide', curSlide === slide.id && curAnim === null ? 'active' : '', getClasses(slide))}>{slide.title}</div>
+                slides[pType].map(slide => (
+                    <div key={slide.id} className={classNames('slide', curSlide === slide.id && curAnim === null ? 'active' : '', getClasses(slide))}></div>
                 ))
             }
             <div className={classNames('arrow', (isDark) ? 'dark' : '')} onClick={changeSlide.bind(null, 'right')}><FaChevronRight /></div>
