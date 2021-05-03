@@ -14,3 +14,4 @@ This is the repository for the React build of ChrisResume.com. There will also b
 ## Features
 * Light/Dark mode with Redux-managed toggle and SASS-managed styles
 * CSS3 Cube Slider (custom-made, not a pre-packaged component)
+* slides.js project formatting for quickly adding/removing projects
