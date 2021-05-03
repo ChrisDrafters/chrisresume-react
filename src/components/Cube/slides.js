@@ -1,6 +1,12 @@
 import definitions from '../../images/definitions-chart.png'
 import runtime from '../../images/runtime-chart.png'
 import migration from '../../images/migration-chart.png'
+import monitor from '../../images/monitor.jpg'
+import sudoku from '../../images/sudoku.png'
+import sonic from '../../images/sonic.png'
+import youtube from '../../images/youtube.png'
+import draft from '../../images/draft.png'
+import draft2 from '../../images/draft2.jpg'
 
 const slides =
 {
@@ -24,8 +30,8 @@ const slides =
             problem: "Delivering data in large JSON returns, while being dev-friendly, severely slowed initial load times due to parsing and data size. Additionally, the design and functionality of our existing draft was becoming dated and felt sluggish.",
             body: "With the launch of new competition came well-deserved comparisons and criticisms of our drafting system. What felt fresh and speedy just a year and a half earlier had suddenly fallen behind pace. Endpoints designed to improve the speed of development and make the lives of our developers easier had actually hurt the end product. Utilizing my experience with lower level languages and optimization techniques, I developed a strategy to deliver key data asynchronously and 93% smaller overall. This utilized a binary format and casting into the desired types once received on the frontend. It can be difficult for modern framework developers to quickly grasp these types of delivery methods versus the usual JSON or XML responses they're used to, but the additional time spent teaching our team how the system would work was well worth it for the performance improvements to the end-user.",
             body2: "Beyond just providing backend changes to improve data delivery, I also spearheaded the creation of brand new frontend Angular draft components. The entire draft was rebuilt from the ground up with these new data delivery systems, speed, and modern functionality in mind. Our competition was marketing purely on having the best draft experience available, and we aimed to challenge that claim very clearly. We wanted to load faster, switch between drafts faster, and be more feature rich. With clear goals laid out and a better underlying backend system, I believe we were able to accomplish what we set out to do.",
-            img1: null,
-            img2: null
+            img1: draft,
+            img2: draft2
         },
         {
             id: 2,
@@ -59,7 +65,7 @@ const slides =
             problem: "With our little one on the way, we needed a camera system set up to monitor her from anywhere.",
             body: "When I started researching some of the systems with features that we were interested in, I couldn't believe the prices for some of them. I quickly realized that I could repurpose an old USB webcam and Raspberry Pi that I already owned to achieve the same things. I ended up using open source security camera software, P2P music broadcasting software with the built-in microphone on the webcam, and a Node webserver also running on the Pi to package everything together for use.",
             body2: "For the user experience, I put together a mobile app using NativeScript. This allowed me to compile for our different device types without different codebases and utilize built-in components for a majority of the features. The final feature set (available from anywhere, not just our home network) included: a video feed of our little girl's room, two-way audio (using a small USB speaker connected to the Pi) so we could hear her and talk to her, a predefined audio list to play for her at bed time (could be updated from the server), and a failed breathing monitor utilizing a tiny accelerometer in her crib. Unfortunately, the accelerometer didn't have the fidelity to detect changes in breathing above the regular noise of the device. We ended up supplementing this part with a 3rd-party product.",
-            img1: null,
+            img1: monitor,
             img2: null
         },
         {
@@ -70,7 +76,7 @@ const slides =
             problem: "Sudoku solving is a pretty straight-forward task, but was slightly complicated by artifacting in the screenshots from the mobile app we play on.",
             body: "For a few weeks, my wife and I would play through a couple of sudoku on an app before we went to bed. I thought it would be funny to build a little web utility to import a screenshot of a board we were working through and have it output the solved puzzle, without telling her how I was ripping through these puzzles so quickly. I suspected this would only take twenty to thirty minutes, but was met with an unexpected issue. From screenshot to screenshot, the small amounts of compression automatically added to the images would make it difficult to detect which numbers were in the squares. This is where a very light-weight machine-learning wrapper was implemented, ml5.js.",
             body2: "ml5.js is an extremely user-friendly wrapper for TensorFlowJS and very quickly allowed me to train a classification model for detecting the numbers regardless of any compression noise. It may seem like overkill to employ ML for such a simple computer-vision problem, but thanks to the simplicity of ml5.js it really only took a few minutes to have a working, lightweight model. Once I could reliably detect the board values, it was just a regular sudoku solving problem. The output was drawn over top of the original board using HTML5 canvas. My wife was not amused.",
-            img1: null,
+            img1: sudoku,
             img2: null
         },
         {
@@ -81,7 +87,7 @@ const slides =
             problem: "How to train AI to evolve and become better at solving a mini-game.",
             body: "This project came about because of my love for this obscure mini-game from the Sonic the Hedgehog series and having an interest in the NEAT model. NEAT describes a model where an AI improves across generations without having any real idea about the goal it is trying to accomplish. The NEAT model is fascinating in that you simply set up some weights and a fitness model to determine how well a generation is performing, and over time the AI mutates and breeds to become competetent at achieving the goal.",
             body2: "In addition to the NEAT model implemented from scratch, this project also required recreating the mini-game itself in JS and HTML5 canvas. A simple level creator was also needed, including a custom file format. In the end, it was very fun watching the clueless AI spin in circles in the early generations to becoming expert players in the later stages of evolution.",
-            img1: null,
+            img1: sonic,
             img2: null
         },
         {
@@ -92,7 +98,7 @@ const slides =
             problem: "How to automate highlight compilation videos from popular video games, for release on YouTube.",
             body: "I decided to create this project after seeing the rise in popularity of channels showcasing highlights for popular games and recognizing the clips from the top posts in popular subreddits. I suspected that these videos were being automatically generated, and set out to put together the tools to do the same. The first step was scraping from these subreddits based on post tags and links to Twitch clips, over a set period of time. Once I had a list of clips I utilized a 3rd-party tool to download each video. After all of the clips are downloaded, they are spliced together automatically using FFMPEG. Lastly, an output video is generated.",
             body2: "The final piece of the puzzle, aside from publishing to YouTube, was being able to quickly generate a thumbnail. I wanted every part of the process to be extremely simple with no need for outside tools. For this, I created an HTML page with a video element containing the output file. You could scrub through the video and pause where you liked to grab a thumbnail. In a canvas below the video element, it would superimpose an icon in the top corner of the thumbnail for branding purposes and output a thumbnail of the proper size for YouTube.",
-            img1: null,
+            img1: youtube,
             img2: null
         },
         {
