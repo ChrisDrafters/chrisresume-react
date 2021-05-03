@@ -1,4 +1,5 @@
 import definitions from '../../images/definitions-chart.png'
+import definitions2 from '../../images/definitions-chart2.png'
 import runtime from '../../images/runtime-chart.png'
 import migration from '../../images/migration-chart.png'
 import monitor from '../../images/monitor.jpg'
@@ -7,6 +8,8 @@ import sonic from '../../images/sonic.png'
 import youtube from '../../images/youtube.png'
 import draft from '../../images/draft.png'
 import draft2 from '../../images/draft2.jpg'
+import csgo from '../../images/csgo.png'
+import csgo2 from '../../images/csgo2.png'
 
 const slides =
 {
@@ -20,7 +23,7 @@ const slides =
             body: "In the summer of 2020 a new, well-funded direct competitor entered the marketplace with simultaneous web and mobile app releases. It became clear early on that their marketing focus was on having the best drafting experience available. This meant that my focus had to be on improving our drafting experience. This particular project was focused on vast improvements to the mobile draft structure, but ties directly into the second project on this page where we rebuilt the web drafting experience as well. For the mobile draft the main bottleneck appeared to be the intial load and switching to any other active drafts. This meant hitting an endpoint for all data related to the draft you're trying to view, including hundreds of players, stats to occupy the players table, and a full list of picks in the draft. Obviously we could benefit immensely by slimming down the data initially sent and switching to the binary endpoints described in the second project on this page, but I still needed to come up with a way to improve initial load times further. I settled on utilizing local storage in the form of an SQLite database. See the comparison structures from before and after below.",
             body2: "I decided on building an endpoint with three main components: a database structure, teams table, and players table. The mobile apps would store and send version variables for both the database structure and teams table (as these do not change very frequently). For the players table, the apps would store and send a timestamp of the last time they updated these local definitions. The endpoint would query for changes to the players database since the timestamp sent and only provide those records that needed to be updated for that particular user. This meant that any wait time for a user would be offloaded to non-critical times (as opposed to when they're on the clock trying to enter a draft, like the old system). It also meant that players data for a draft was pulled from an SQLite database on the user's device, rather than being sent across the network. The endpoint would package up an SQL file and deliver it to the apps based on the version and timestamps provided to it. If the structure was out of date, the SQL file would begin by dumping existing tables and then creating new ones. If the teams version was out of date, it would provide inserts/replaces for the teams data. Lastly, if there were any new updates or inserts for the players table based on the timestamp sent from the app, the SQL file would include those as well. Average load time for navigating to a draft or changing between drafts was improved from 4.5 seconds, down to 1.5 seconds on average after implementing the SQLite definitions system and binary endpoints.",
             img1: definitions,
-            img2: null
+            img2: definitions2
         },
         {
             id: 1,
@@ -109,8 +112,8 @@ const slides =
             problem: "How could personalized hardware, drivers, and external devices be used to cheat at popular video games?",
             body: "Using a popular first-person shooter named Counter-Strike: Global Offensive, I started testing my theory that cheating could be happening in some very clever ways at the highest levels of competitive gaming. I began with a proof-of-concept showing that players could gain huge advantages from using read-only techniques without hooking the game engine. Once my local application was complete (the image below), I started working on an implementation for a mobile phone that could be used by streamers (who are regularly showing all of their screens to viewers, making it harder to cheat the traditional ways) to gain additional information about opponents externally. This can be seen in the bottom image below.",
             body2: "I've been unable to find the time for the planned conclusion to this experiment: a low-level driver for either a gaming mouse or headset that would access application memory and make the read-only operations necessary for gaining an edge. I had envisioned a rumble motor built into either a mouse or, more likely, a headset that would vibrate slightly when a user is aimed at an opponent even through walls. This tiny, almost unnoticeable edge would be enough to turn the tides at the highest levels of competitive play. Some day I hope to build out this final proof-of-concept, fully document my concerns, and explain how to possibly mitigate them in e-sports.",
-            img1: null,
-            img2: null
+            img1: csgo,
+            img2: csgo2
         },
         {
             id: 5,
