@@ -72,7 +72,10 @@ const Cube = () => {
             <div className="shadow"></div>
             {
                 slides[pType].map(slide => (
-                    <div key={slide.id} className={classNames('slide', curSlide === slide.id && curAnim === null ? 'active' : '', getClasses(slide))}></div>
+                    <div key={slide.id} className={classNames('slide', curSlide === slide.id && curAnim === null ? 'active' : '', getClasses(slide))} style={{
+                        backgroundImage: "url('" + slide.sliderImg + "'), linear-gradient(90deg, rgba(142,142,142,1) 0%, rgb(194, 194, 194) 100%)"
+
+                    }}></div>
                 ))
             }
             <div className={classNames('arrow', (isDark) ? 'dark' : '')} onClick={changeSlide.bind(null, 'right')}><FaChevronRight /></div>

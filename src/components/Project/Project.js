@@ -20,8 +20,8 @@ const Project = () => {
         <div className={classNames('Project', (isDark) ? 'dark' : '')}>
             <div className="tabs">
                 <Tabs indicatorColor="primary" value={pType} onChange={handleChange}>
-                    <Tab label="Professional" value="professional" />
-                    <Tab label="Personal" value="personal" />
+                    <Tab classes={{ wrapper: 'tab' }} label="Professional" value="professional" />
+                    <Tab classes={{ wrapper: 'tab' }} label="Personal" value="personal" />
                 </Tabs>
             </div>
             <Cube />
