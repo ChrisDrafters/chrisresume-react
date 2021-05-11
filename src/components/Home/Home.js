@@ -9,8 +9,8 @@ const Home = () => {
         <div className={classNames('Home', (isDark) ? 'dark' : '')}>
             <div className="about">
                 <div className="imageContainer">
+                    <div className="styleShadow"></div>
                     <div className="image1"></div>
-                    <div className="image2"></div>
                     <div className="shadow"></div>
                 </div>
                 <div className="rightB">

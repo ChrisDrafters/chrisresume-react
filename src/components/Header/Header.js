@@ -50,6 +50,9 @@ function Header() {
 
     return (
         <div className={classNames('Header', (isDark) ? 'dark' : '')}>
+            <div className="styleShadow">
+                <div className="styleLeft"></div>
+            </div>
             <Drawer classes={{ paperAnchorLeft: classNames('soContainer', (isDark) ? 'dark' : '') }} anchor="left" open={openDrawer} onClose={closeMenu}>
                 <div className="slideOutMenu">
                     <Link to="/" className={classNames(location.pathname === '/' ? 'active' : '', 'items', isDark ? 'dark' : '')}>Home</Link>

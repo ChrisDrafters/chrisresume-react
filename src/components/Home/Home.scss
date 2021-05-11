@@ -21,6 +21,7 @@
     display:flex;
     justify-content:space-around;
     align-items:flex-start;
+    position:relative;
 }
 
 .rightB{
@@ -67,11 +68,20 @@
 .imageContainer{
     width:450px;
     height:675px;
-    overflow:hidden;
     white-space: nowrap;
     border-radius:25px;
     box-shadow: 2px 0px 11px 2px rgba(0,0,0,0.5) inset;
     position:relative;
+    .styleShadow{
+        position:absolute;
+        border-radius:25px;
+        width:100%;
+        height:100%;
+        background-color:rgb(88, 119, 202);
+        top:5px;
+        left:5px;
+        z-index:1;
+    }
     .shadow{
         border-radius:25px;
         box-shadow: 2px 0px 11px 2px rgba(0,0,0,0.5) inset;
@@ -80,124 +90,18 @@
         position:absolute;
         top:0;
         left:0;
+        z-index:3;
     }
     .image1{
-        display:inline-block;
-        width:0%;
-        height:100%;
-        animation: image1Rotation 10s 1;
-        background:url('../../images/me.jpg');
-        background-size:450px 675px;
-        background-position-x:0px;
-        background-repeat:no-repeat;
-        filter:grayscale(1);
-    }
-    .image2{
+        border-radius:25px;
         display:inline-block;
         width:100%;
         height:100%;
-        animation: image2Rotation 10s 1;
         background:url('../../images/me.jpg');
-        background-size:450px 675px;
-        background-position-x:0px;
+        background-size:cover;
         background-repeat:no-repeat;
-        filter:saturate(1.2);
-    }
-}
-
-@keyframes image1Rotation{
-    0%{
-        width:0%;
-    }
-    15%{
-        width:100%;
-    }
-    30%{
-        width:0px;
-    }
-    45%{
-        width:50%;
-        filter:grayscale(0) saturate(1.25);
-    }
-    60%{
-        width:100%;
-    }
-    75%{
-        width:0px;
-        filter:saturate(1.25);
-    }
-    100%{
-        width:0%;
-        filter:saturate(1) grayscale(1);
-    }
-}
-@keyframes image2Rotation{
-    0%{
-        width:100%;
-        background-position-x:0px;
-    }
-    15%{
-        width:0px;
-        background-position-x:-450px;
-    }
-    30%{
-        width:100%;
-        background-position-x:0px;
-    }
-    45%{
-        width:50%;
-        background-position-x:-225px;
-        filter:hue-rotate(0deg) sepia(1.5);
-    }
-    60%{
-        width:0px;
-        background-position-x:-450px;
-        filter:hue-rotate(125deg) sepia(0) saturate(1);
-    }
-    75%{
-        width:100%;
-        background-position-x:0px;
-        filter: hue-rotate(0deg);
-    }
-    100%{
-        width:100%;
-        background-position-x:0px;
-        filter:hue-rotate(0deg) saturate(1.2);
-    }
-}
-
-@keyframes image2RotationMobile{
-    0%{
-        width:100%;
-        background-position-x:0px;
-    }
-    15%{
-        width:0px;
-        background-position-x:-225px;
-    }
-    30%{
-        width:100%;
-        background-position-x:0px;
-    }
-    45%{
-        width:50%;
-        background-position-x:-112.5px;
-        filter:hue-rotate(0deg) sepia(1.5);
-    }
-    60%{
-        width:0px;
-        background-position-x:-225px;
-        filter:hue-rotate(125deg) sepia(0) saturate(1);
-    }
-    75%{
-        width:100%;
-        background-position-x:0px;
-        filter: hue-rotate(0deg);
-    }
-    100%{
-        width:100%;
-        background-position-x:0px;
-        filter:hue-rotate(0deg) saturate(1.2);
+        z-index:2;
+        position:relative;
     }
 }
 
@@ -224,22 +128,10 @@
     .imageContainer{
         width:225px !important;
         height:337.5px !important;
+        margin-bottom:10px;
         .shadow{
             width:225px !important;
             height:337.5px !important;
-        }
-        .image1, .image2{
-            background-size:225px 337.5px !important;
-        }
-        .image2{
-            display:inline-block;
-            width:100%;
-            height:100%;
-            animation: image2RotationMobile 10s 1 !important;
-            background:url('../../images/me.jpg');
-            background-position-x:0px;
-            background-repeat:no-repeat;
-            filter:saturate(1.2);
         }
     }
 }

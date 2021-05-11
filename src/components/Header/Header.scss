@@ -35,12 +35,31 @@
     width:100%;
     background-color:rgb(255,255,255);
     color:rgb(50,50,50);
-    box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.2);
     animation: fadeIn 0.5s 1;
     position:sticky;
     top:0;
     z-index:5;
+    .styleLeft{
+        width:5px;
+        height:5px;
+        position:absolute;
+        bottom:2px;
+        left:-3px;
+        transform:rotate(45deg);
+        background-color:rgb(88, 119, 202);
+    }
+    .styleShadow{
+        position:absolute;
+        top:5px;
+        left:10px;
+        background-color:rgb(88, 119, 202);
+        width:calc(100% - 10px);
+        height:100%;
+        z-index:1;
+    }
     .content{
+        background-color:inherit;
+        z-index:2;
         padding:10px;
         display:flex;
         justify-content:space-between;
